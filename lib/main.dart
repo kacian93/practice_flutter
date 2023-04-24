@@ -1,3 +1,5 @@
+import 'package:first_project/button.dart';
+import 'package:first_project/currency_card.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,9 +12,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        backgroundColor: Color(0xFF181818),
-        body: Padding(
+        home: Scaffold(
+      backgroundColor: const Color(0xFF181818),
+      body: SingleChildScrollView(
+        child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -40,7 +43,7 @@ class MyApp extends StatelessWidget {
                 ],
               ),
               SizedBox(
-                height: 60,
+                height: 30,
               ),
               Text(
                 'Total Balance',
@@ -63,27 +66,50 @@ class MyApp extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
-                    decoration: BoxDecoration(
-                        color: Color(0xFF1F2123),
-                        borderRadius: BorderRadius.circular(45)),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 15,
-                        horizontal: 40,
-                      ),
-                      child: Text(
-                        'Request',
-                        style: TextStyle(color : Colors.white,fontSize: 22),
-                      ),
-                    ),
+                  MyButton(
+                    text: 'require',
+                    bgcolor: Color(0xFFF1B33B),
+                    textColor: Colors.black,
                   ),
+                  MyButton(
+                    text: 'transfer',
+                    bgcolor: Color(0xFF1F2322),
+                    textColor: Colors.white,
+                  )
                 ],
-              )
+              ),
+              const SizedBox(
+                height: 100,
+              ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Wallets',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 36,
+                        fontWeight: FontWeight.w600),
+                  ),
+                  Text(
+                    'View All',
+                    style: TextStyle(
+                        color: Colors.white.withOpacity(0.8), fontSize: 22),
+                  )
+                ],
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              CurrencyCard(name: 'Euro', code: 'EUR', amount: '6 428', icon: Icons.euro_rounded, isInverted: false, order:1,),
+              CurrencyCard(name: 'Bitcoin', code: 'BTC', amount: '3 249', icon: Icons.currency_bitcoin, isInverted: true,order:2,),
+              CurrencyCard(name: 'Dolor', code: 'USD', amount: '428', icon: Icons.money, isInverted: false, order : 3,),
+
             ],
           ),
         ),
       ),
-    );
+    ));
   }
 }

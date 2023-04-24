@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 
-class Button extends StatelessWidget {
+class MyButton extends StatelessWidget {
   final String text;
   final Color bgcolor;
   final Color textColor;
 
-  Button({required this.text, required this.bgcolor, required this.textColor});
+  MyButton({required this.text, required this.bgcolor, required this.textColor});
 
   @override
   Widget build(BuildContext context) {
