@@ -7,6 +7,7 @@ class CurrencyCard extends StatelessWidget {
   final bool isInverted;
   final _blackColor = const Color(0xFF1F2123);
   final int order;
+  //cc
 
   const CurrencyCard({super.key, required this.name, required this.code, required this.amount, required this.icon, required this.isInverted, required this.order});
 
